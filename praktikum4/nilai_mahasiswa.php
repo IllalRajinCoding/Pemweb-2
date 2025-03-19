@@ -1,28 +1,26 @@
-<?php
 
+<?php
 class NilaiMahasiswa {
     public $nama;
-    public $gender;
     public $matakuliah;
     public $nilai_uts;
     public $nilai_uas;
     public $nilai_tugas;
-    public const presentase_uts = 0.25;
-    public const presentase_uas = 0.30;
-    public const presentase_tugas = 0.45;
-
-    public function nilaiAkhir () {
-        $nilai_akhir = $this->nilai_uts * self::presentase_uts + $this->nilai_uas * self::presentase_uas + $this->nilai_tugas * self::presentase_tugas;
-        return $nilai_akhir;
+    
+    // Menghitung nilai akhir dengan bobot: 30% UTS, 35% UAS, 35% Tugas
+    public function nilaiAkhir() {
+        $nilai = ($this->nilai_uts * 0.25) + ($this->nilai_uas * 0.30) + ($this->nilai_tugas * 0.45);
+        return number_format($nilai, 2);
     }
-
-    public function kelulusan () {
-        if($this->nilaiAkhir()>= 60) {
+    
+    // Menentukan status kelulusan (Lulus jika nilai akhir >= 60)
+    public function kelulusan() {
+        $nilai_akhir = $this->nilaiAkhir();
+        if ($nilai_akhir >= 60) {
             return "Lulus";
         } else {
             return "Tidak Lulus";
         }
     }
 }
-
 ?>
