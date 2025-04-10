@@ -1,6 +1,26 @@
 {
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.14",
+    "@tailwindcss/cli": "^4.0.14",
     "tailwindcss": "^4.0.14"
-  }
+  },
+  "name": "web-php",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tw": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IllalRajinCoding/Pemweb-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IllalRajinCoding/Pemweb-2/issues"
+  },
+  "homepage": "https://github.com/IllalRajinCoding/Pemweb-2#readme",
+  "description": ""
 }
