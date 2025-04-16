@@ -1,7 +1,6 @@
 <?php
 include '../config/koneksi.php';
 
-// Tampilkan alert jika ada
 session_start();
 if (isset($_SESSION['alert'])) {
     $alert = $_SESSION['alert'];
@@ -18,12 +17,10 @@ if (isset($_POST['nama'])) {
     $email = $_POST['email'];
     $kelurahan_id = $_POST['kelurahan_id'];
 
-    // Validasi kelurahan_id
     if (empty($kelurahan_id)) {
         die('<script>alert("Silakan pilih kelurahan")</script>');
     }
 
-    // Gunakan prepared statement untuk mencegah SQL injection
     $stmt = $koneksi->prepare("INSERT INTO pasien (kode, nama, tmp_lahir, tgl_lahir, gender, email, kelurahan_id) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssssssi", $kode, $nama, $tmp_lahir, $tgl_lahir, $gender, $email, $kelurahan_id);
 
